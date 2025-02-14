@@ -23,9 +23,18 @@ RSpec.describe StringCalculator do
     it "handles numbers with spaces" do
       expect(calculator.add(" 1, 2,3 ")).to eq(6)
     end
-    
+
     it "handles new lines" do
       expect(calculator.add("1\n2,3")).to eq(6)
     end
+
+    it "handles custom delimiters" do
+      expect(calculator.add("//;\n1;2")).to eq(3)
+    end
+
+    it "handles different custom delimiters" do
+      expect(calculator.add("//|\n2|3|5")).to eq(10)
+    end
+
   end
 end
